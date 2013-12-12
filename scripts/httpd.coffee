@@ -24,10 +24,6 @@ module.exports = (robot) ->
   robot.router.get "/hubot/version", (req, res) ->
     res.end robot.version
 
-  robot.router.get "/hubot/hi", (req, res) ->
-    res.end "message sent"
-    robot.send {}, "oh hai"
-
   robot.router.post "/hubot/ping", (req, res) ->
     res.end "PONG"
 
