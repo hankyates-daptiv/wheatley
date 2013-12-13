@@ -14,7 +14,7 @@ module.exports = (robot) ->
     ]
     msg.reply wheatley_img[Math.floor(Math.random()*wheatley_img.length)]
 
-  robot.hear /(morning|mornin|hi wheatley|hey wheatley)$/i, (msg) ->
+  robot.hear /(morning|mornin|hi wheatley|hey wheatley| hi | hey )$/i, (msg) ->
     wheatley_img = [
        "http://media.tumblr.com/tumblr_maf0f5TxkQ1rrzlrq.gif",
        "http://24.media.tumblr.com/b02cc25ede2ca39d2a8a1518923bfac6/tumblr_mwcpfmWvQm1qcb7k0o1_400.gif",
