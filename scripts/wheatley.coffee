@@ -8,13 +8,6 @@
 
 
 module.exports = (robot) ->
-  delay = (ms, func) -> setTimeout func, ms;
-  saySomething = () ->
-    robot.messageRoom "daptiv/bot", "http://24.media.tumblr.com/b02cc25ede2ca39d2a8a1518923bfac6/tumblr_mwcpfmWvQm1qcb7k0o1_400.gif \n Is anoyone there?"
-    delay saySomething, 86400000;
-
-  saySomething()
-
   robot.hear /(morning|mornin|hi wheatley|hey wheatley)$/i, (msg) ->
     wheatley_img = [
        "http://media.tumblr.com/tumblr_maf0f5TxkQ1rrzlrq.gif",
