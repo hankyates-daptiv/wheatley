@@ -45,7 +45,7 @@ module.exports = (robot) ->
 
 
 announcePullRequest = (data, cb) ->
-  if /(opened|reopened)/i.test(data.action)
+  if data.action == 'opened'
     mentioned = data.pull_request.body.match(/(^|\s)(@[\w\-\/]+)/g)
 
     if mentioned
