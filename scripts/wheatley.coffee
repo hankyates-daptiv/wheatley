@@ -44,10 +44,10 @@ module.exports = (robot) ->
     ]
     msg.send wheatley_img[Math.floor(Math.random()*wheatley_img.length)]
 
-  robot.hear /.*(panic).*$/i, (msg) ->
+  robot.hear /.*(panic)? (.*)$/i, (msg) ->
     msg.send "http://25.media.tumblr.com/b4e203c894237b2721a8a21f63a3ca2a/tumblr_mmagd8rjY61rmn5y0o2_250.gif"
 
-  robot.hear /.*(hack).*$/i, (msg) ->
+  robot.hear /.*(hack)? (.*)$/i, (msg) ->
     wheatley_img = [
       "http://25.media.tumblr.com/4bd69414bcd678cfd7333ec95cf55dac/tumblr_mw49qjR7G01r3r8efo1_500.gif",
       "http://24.media.tumblr.com/44258bdf8e4e2b857cafb69097bacd67/tumblr_mw49qjR7G01r3r8efo4_500.gif",
@@ -55,21 +55,40 @@ module.exports = (robot) ->
     ]
     msg.send wheatley_img[Math.floor(Math.random()*wheatley_img.length)]
 
-  robot.hear /.*(lol|haha|hah).*$/i, (msg) ->
+  robot.hear /.*(lol|haha|hah)? (.*)$/i, (msg) ->
     wheatley_img = [
       "http://31.media.tumblr.com/50c5c0ce29f3eee12a11e5e184fb376d/tumblr_mx06b2etSt1qccu1oo5_250.gif"
     ]
     msg.send wheatley_img[Math.floor(Math.random()*wheatley_img.length)] + "\n HA!"
 
-  robot.hear /.*(crazy|insane).*$/i, (msg) ->
+  robot.hear /.*(crazy|insane)? (.*)$/i, (msg) ->
     msg.send "http://24.media.tumblr.com/3a0db8d8290775e7b832a9d00dbcf8ae/tumblr_mvz24rtGhE1r3r8efo3_500.gif"
 
   robot.hear /.*(bird).*$/i, (msg) ->
     msg.send "http://25.media.tumblr.com/0ba7edfcaec59f6681153293d7104870/tumblr_mqp72vmCEv1rix2dqo1_250.gif"
 
-  robot.hear /.*(love|like|good).*$/i, (msg) ->
+  robot.hear /.*(love|like|good)? (.*)$/i, (msg) ->
     wheatley_img = [
       "http://th06.deviantart.net/fs71/200H/i/2011/110/d/e/wheatley__portal_2_by_littlemeesh-d3eh5w0.png",
       "http://25.media.tumblr.com/5809ba7fb5c2268a85b21e67b3e1dae4/tumblr_mi7sri4uSj1rgndfmo1_500.gif"
     ]
     msg.send wheatley_img[Math.floor(Math.random()*wheatley_img.length)]
+
+  robot.hear /(whodat|who dat?!)? (.*)/i, (msg) ->
+    imageMe msg, 'new orleans saints', true, (url) ->
+      msg.send url
+
+imageMe = (msg, query, animated, faces, cb) ->
+  cb = animated if typeof animated == 'function'
+  cb = faces if typeof faces == 'function'
+  q = v: '1.0', rsz: '8', q: query, safe: 'active'
+  q.imgtype = 'animated' if typeof animated is 'boolean' and animated is true
+  q.imgtype = 'face' if typeof faces is 'boolean' and faces is true
+  msg.http('http://ajax.googleapis.com/ajax/services/search/images')
+    .query(q)
+    .get() (err, res, body) ->
+      images = JSON.parse(body)
+      images = images.responseData?.results
+      if images?.length > 0
+        image  = msg.random images
+        cb "#{image.unescapedUrl}#.png"
