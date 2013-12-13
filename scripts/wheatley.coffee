@@ -7,7 +7,7 @@
 #   hank
 
 module.exports = (robot) ->
-  robot.hear /(morning|mornin)$/i, (msg) ->
+  robot.hear /(morning|mornin|hi|hey)$/i, (msg) ->
     wheatley_img = [
        "http://media.tumblr.com/tumblr_maf0f5TxkQ1rrzlrq.gif",
        "http://24.media.tumblr.com/b02cc25ede2ca39d2a8a1518923bfac6/tumblr_mwcpfmWvQm1qcb7k0o1_400.gif",
@@ -18,7 +18,7 @@ module.exports = (robot) ->
        "http://31.media.tumblr.com/0f2d6af2e107621221855f2356962194/tumblr_mx06b2etSt1qccu1oo2_500.gif",
        "http://24.media.tumblr.com/d2277914b5468d57c41ccf538b808c10/tumblr_mwx1x2w6Te1r89838o7_r2_250.gif"
     ]
-    msg.send wheatley_img[Math.floor(Math.random()*wheatley_img.length)]
+    msg.send wheatley_img[Math.floor(Math.random()*wheatley_img.length)] + "\n oh ... uh. hello there."
 
   robot.hear /panic$/i, (msg) ->
     msg.send "http://24.media.tumblr.com/58eed93435ea93cf21b98b75c6386fb6/tumblr_mwx1x2w6Te1r89838o6_r2_250.gif"
