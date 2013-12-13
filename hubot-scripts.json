@@ -1,5 +1,6 @@
 [
     "redis-brain.coffee",
     "shipit.coffee",
+    "github-commit-link.coffee",
     "github-pulls.coffee"
 ]
