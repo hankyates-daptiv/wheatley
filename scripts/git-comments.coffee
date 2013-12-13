@@ -39,7 +39,7 @@ module.exports = (robot) ->
     user.type = query.type if query.type
 
     try
-      console.log res.headers['X-Github-Event']
+      console.log res.headers
       body = req.body
       message += "New PR comment #{body.comment.html_url} by #{body.comment.user.login}\n"
       message += "on line #{body.comment.position} in file #{body.comment.path}\n"
