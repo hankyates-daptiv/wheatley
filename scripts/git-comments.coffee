@@ -34,36 +34,33 @@ module.exports = (robot) ->
     res.end "yup"
 
     user = {}
+    message = ""
     user.room = query.room if query.room
     user.type = query.type if query.type
 
     try
-      announceComment req.body
+      message += "New PR comment on #{body.comment.pull_request_url} by #{body.comment.user.login}\n"
+      message += "on line #{body.comment.position} in file #{body.comment.path}\n"
+      message += "#{body.comment.html_url}\n"
+
+      mentioned = body.pull_request.body.match(/(^|\s)(@[\w\-\/]+)/g)
+      if mentioned
+        unique = (array) ->
+          output = {}
+          output[array[key]] = array[key] for key in [0...array.length]
+          value for key, value of output
+
+        mentioned = mentioned.filter (nick) ->
+          slashes = nick.match(/\//g)
+          slashes is null or slashes.length < 2
+
+        mentioned = mentioned.map (nick) -> nick.trim()
+        mentioned = unique mentioned
+
+        message += "Mentioned: #{mentioned.join(", ")}"
+      robot.send user, message
     catch error
       console.log "github comment notifier error: #{error}. Request: #{req.body}"
 
 
 announceComment = (body) ->
-    mentioned = body.pull_request.body.match(/(^|\s)(@[\w\-\/]+)/g)
-    message = ""
-
-    message += "New PR comment on #{body.comment.pull_request_url} by #{body.comment.user.login}\n"
-    message += "on line #{body.comment.position} in file #{body.comment.path}\n"
-    message += "#{body.comment.html_url}\n"
-
-    if mentioned
-      unique = (array) ->
-        output = {}
-        output[array[key]] = array[key] for key in [0...array.length]
-        value for key, value of output
-
-      mentioned = mentioned.filter (nick) ->
-        slashes = nick.match(/\//g)
-        slashes is null or slashes.length < 2
-
-      mentioned = mentioned.map (nick) -> nick.trim()
-      mentioned = unique mentioned
-
-      message += "Mentioned: #{mentioned.join(", ")}"
-
-    robot.send user, message
