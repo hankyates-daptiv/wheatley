@@ -16,9 +16,17 @@ module.exports = (robot) ->
        "http://25.media.tumblr.com/46e673055f93b929887da72c92a4b630/tumblr_mx06b2etSt1qccu1oo1_500.gif",
        "http://31.media.tumblr.com/50c5c0ce29f3eee12a11e5e184fb376d/tumblr_mx06b2etSt1qccu1oo5_250.gif",
        "http://24.media.tumblr.com/a2120cd8d3deae0f8bec042644873877/tumblr_mx06b2etSt1qccu1oo4_250.gif",
+       "http://media.tumblr.com/tumblr_maf0f5TxkQ1rrzlrq.gif",
+       "http://25.media.tumblr.com/3f6cdf635caf86fa1bd56ba19421434e/tumblr_mifspd6EnJ1rgndfmo1_400.gif",
        "http://31.media.tumblr.com/0f2d6af2e107621221855f2356962194/tumblr_mx06b2etSt1qccu1oo2_500.gif"
     ]
     msg.send  wheatley_img[Math.floor(Math.random()*wheatley_img.length)] + "\n oh ... uh. hello there."
 
   robot.hear /panic$/i, (msg) ->
-    msg.send "http://24.media.tumblr.com/58eed93435ea93cf21b98b75c6386fb6/tumblr_mwx1x2w6Te1r89838o6_r2_250.gif"
+    msg.send "http://25.media.tumblr.com/b4e203c894237b2721a8a21f63a3ca2a/tumblr_mmagd8rjY61rmn5y0o2_250.gif"
+
+  robot.hear /bird$/i, (msg) ->
+    msg.send "http://25.media.tumblr.com/0ba7edfcaec59f6681153293d7104870/tumblr_mqp72vmCEv1rix2dqo1_250.gif"
+
+  robot.hear /(love|like)$/i, (msg) ->
+    msg.send "http://25.media.tumblr.com/5809ba7fb5c2268a85b21e67b3e1dae4/tumblr_mi7sri4uSj1rgndfmo1_500.gif"
