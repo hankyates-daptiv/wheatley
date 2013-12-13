@@ -52,7 +52,7 @@ module.exports = (robot) ->
     ]
     msg.send wheatley_img[Math.floor(Math.random()*wheatley_img.length)]
 
-  robot.hear /(lol|haha|)$/i, (msg) ->
+  robot.hear /(lol|haha)$/i, (msg) ->
     wheatley_img = [
       "http://31.media.tumblr.com/50c5c0ce29f3eee12a11e5e184fb376d/tumblr_mx06b2etSt1qccu1oo5_250.gif"
     ]
