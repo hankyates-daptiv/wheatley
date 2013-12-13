@@ -44,7 +44,7 @@ module.exports = (robot) ->
 
 
 announceComment = (body) ->
-    mentioned = data.pull_request.body.match(/(^|\s)(@[\w\-\/]+)/g)
+    mentioned = body.pull_request.body.match(/(^|\s)(@[\w\-\/]+)/g)
     message = ""
 
     message += "New PR comment on #{body.comment.pull_request_url} by #{body.comment.user.login}\n"
