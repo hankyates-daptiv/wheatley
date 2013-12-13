@@ -39,6 +39,7 @@ module.exports = (robot) ->
     user.type = query.type if query.type
 
     try
+      body = req.body
       message += "New PR comment on #{body.comment.pull_request_url} by #{body.comment.user.login}\n"
       message += "on line #{body.comment.position} in file #{body.comment.path}\n"
       message += "#{body.comment.html_url}\n"
@@ -58,9 +59,9 @@ module.exports = (robot) ->
         mentioned = unique mentioned
 
         message += "Mentioned: #{mentioned.join(", ")}"
+
       robot.send user, message
+
     catch error
       console.log "github comment notifier error: #{error}. Request: #{req.body}"
 
-
-announceComment = (body) ->
