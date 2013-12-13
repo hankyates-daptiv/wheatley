@@ -25,9 +25,10 @@ module.exports = (robot) ->
   robot.hear /(derp|whoops|oops|dammit|shit|ugh|bad)$/i, (msg) ->
     wheatley_img = [
       "http://cdn.memegenerator.net/instances/400x/29086847.jpg",
-      "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRsZ3jG7yl-fXEBjjm2ROj2XGySdHsP4na8aBwuPj-mW8UfC9Jo",
+      "http://24.media.tumblr.com/d8c9f5b77fe17207fbdb890473fa4ab0/tumblr_mvz24rtGhE1r3r8efo1_500.gif",
       "http://i.imgur.com/iByosOp.png",
       "http://img0.etsystatic.com/il_570xN.243115620.jpg",
+      "http://25.media.tumblr.com/tumblr_m4cjfpzI2v1qhbnv4o2_r3_500.gif",
       "http://cdn.memegenerator.net/instances/250x250/43232276.jpg"
     ]
     msg.send wheatley_img[Math.floor(Math.random()*wheatley_img.length)]
@@ -36,7 +37,12 @@ module.exports = (robot) ->
     msg.send "http://25.media.tumblr.com/b4e203c894237b2721a8a21f63a3ca2a/tumblr_mmagd8rjY61rmn5y0o2_250.gif"
 
   robot.hear /(hack)$/i, (msg) ->
-    msg.send "http://25.media.tumblr.com/tumblr_menza20uFb1rkxa08o1_500.gif"
+    wheatley_img = [
+      "http://25.media.tumblr.com/4bd69414bcd678cfd7333ec95cf55dac/tumblr_mw49qjR7G01r3r8efo1_500.gif",
+      "http://24.media.tumblr.com/44258bdf8e4e2b857cafb69097bacd67/tumblr_mw49qjR7G01r3r8efo4_500.gif",
+      "http://25.media.tumblr.com/tumblr_menza20uFb1rkxa08o1_500.gif"
+    ]
+    msg.send wheatley_img[Math.floor(Math.random()*wheatley_img.length)]
 
   robot.hear /bird$/i, (msg) ->
     msg.send "http://25.media.tumblr.com/0ba7edfcaec59f6681153293d7104870/tumblr_mqp72vmCEv1rix2dqo1_250.gif"
