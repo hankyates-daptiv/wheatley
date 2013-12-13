@@ -8,6 +8,12 @@
 
 
 module.exports = (robot) ->
+  robot.hear /(careful|care)$/i, (msg) ->
+    wheatley_img = [
+      "http://25.media.tumblr.com/9ee555d19958d6fa8387c175bc993ab3/tumblr_mwpeg8urRS1rmehxxo1_500.png"
+    ]
+    msg.reply wheatley_img[Math.floor(Math.random()*wheatley_img.length)]
+
   robot.hear /(morning|mornin|hi wheatley|hey wheatley)$/i, (msg) ->
     wheatley_img = [
        "http://media.tumblr.com/tumblr_maf0f5TxkQ1rrzlrq.gif",
@@ -20,7 +26,7 @@ module.exports = (robot) ->
        "http://25.media.tumblr.com/3f6cdf635caf86fa1bd56ba19421434e/tumblr_mifspd6EnJ1rgndfmo1_400.gif",
        "http://31.media.tumblr.com/0f2d6af2e107621221855f2356962194/tumblr_mx06b2etSt1qccu1oo2_500.gif"
     ]
-    msg.reply wheatley_img[Math.floor(Math.random()*wheatley_img.length)] + "\n oh ... uh. hello there."
+    msg.reply wheatley_img[Math.floor(Math.random()*wheatley_img.length)] + "\n oh ... uh. hello there..."
 
   robot.hear /(derp|whoops|oops|dammit|shit|ugh|bad)$/i, (msg) ->
     wheatley_img = [
@@ -46,6 +52,12 @@ module.exports = (robot) ->
     ]
     msg.send wheatley_img[Math.floor(Math.random()*wheatley_img.length)]
 
+  robot.hear /(lol|haha|)$/i, (msg) ->
+    wheatley_img = [
+      "http://31.media.tumblr.com/50c5c0ce29f3eee12a11e5e184fb376d/tumblr_mx06b2etSt1qccu1oo5_250.gif"
+    ]
+    msg.send wheatley_img[Math.floor(Math.random()*wheatley_img.length)] + "\n hah!"
+
   robot.hear /(crazy|insane)$/i, (msg) ->
     msg.send "http://24.media.tumblr.com/3a0db8d8290775e7b832a9d00dbcf8ae/tumblr_mvz24rtGhE1r3r8efo3_500.gif"
 
@@ -53,4 +65,8 @@ module.exports = (robot) ->
     msg.send "http://25.media.tumblr.com/0ba7edfcaec59f6681153293d7104870/tumblr_mqp72vmCEv1rix2dqo1_250.gif"
 
   robot.hear /(love|like|good)$/i, (msg) ->
-    msg.send "http://25.media.tumblr.com/5809ba7fb5c2268a85b21e67b3e1dae4/tumblr_mi7sri4uSj1rgndfmo1_500.gif"
+    wheatley_img = [
+      "http://th06.deviantart.net/fs71/200H/i/2011/110/d/e/wheatley__portal_2_by_littlemeesh-d3eh5w0.png",
+      "http://25.media.tumblr.com/5809ba7fb5c2268a85b21e67b3e1dae4/tumblr_mi7sri4uSj1rgndfmo1_500.gif"
+    ]
+    msg.send wheatley_img[Math.floor(Math.random()*wheatley_img.length)]
