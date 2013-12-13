@@ -40,7 +40,7 @@ module.exports = (robot) ->
 
     try
       body = req.body
-      message += "New #{req.headers['x-github-event']} comment\n"
+      message += "New #{req.headers['x-github-event']}\n"
       message += "#{body.comment.html_url}\n"
       message += "by #{body.comment.user.login} in file #{body.comment.path}\n"
 
