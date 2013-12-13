@@ -40,9 +40,8 @@ module.exports = (robot) ->
 
     try
       body = req.body
-      message += "New PR comment on #{body.comment.pull_request_url} by #{body.comment.user.login}\n"
+      message += "New PR comment #{body.comment.html_url} by #{body.comment.user.login}\n"
       message += "on line #{body.comment.position} in file #{body.comment.path}\n"
-      message += "#{body.comment.html_url}\n"
 
       mentioned = body.comment.body.match(/(^|\s)(@[\w\-\/]+)/g)
       if mentioned
