@@ -8,6 +8,9 @@
 
 
 module.exports = (robot) ->
+  robot.hear /.*(bed|hard|force|deep).*/i, (msg) ->
+    msg.send "That's what she said..."
+
   robot.hear /.*(careful|care).*$/i, (msg) ->
     wheatley_img = [
       "http://25.media.tumblr.com/9ee555d19958d6fa8387c175bc993ab3/tumblr_mwpeg8urRS1rmehxxo1_500.png"
