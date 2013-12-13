@@ -44,7 +44,7 @@ module.exports = (robot) ->
       message += "on line #{body.comment.position} in file #{body.comment.path}\n"
       message += "#{body.comment.html_url}\n"
 
-      mentioned = body.pull_request.body.match(/(^|\s)(@[\w\-\/]+)/g)
+      mentioned = body.comment.body.match(/(^|\s)(@[\w\-\/]+)/g)
       if mentioned
         unique = (array) ->
           output = {}
