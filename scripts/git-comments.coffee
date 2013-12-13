@@ -39,9 +39,8 @@ module.exports = (robot) ->
     user.type = query.type if query.type
 
     try
-      console.log req
       body = req.body
-      message += "New comment #{body.comment.html_url}\n"
+      message += "New #{req.headers.x-github-event} comment #{body.comment.html_url}\n"
       message += "by #{body.comment.user.login} in file #{body.comment.path}\n"
 
       mentioned = body.comment.body.match(/(^|\s)(@[\w\-\/]+)/g)
