@@ -7,6 +7,5 @@
 #   hank
 
 module.exports = (robot) ->
-  robot.hear /(bed|hard|in|force|deep)/i, (msg) ->
-    if !(msg.message.text.match(/commit\//))
-      msg.send "That's what she said..."
+  robot.hear /(bed|hard|force|deep)/i, (msg) ->
+    msg.send "That's what she said..."
