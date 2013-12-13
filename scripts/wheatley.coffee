@@ -64,7 +64,7 @@ module.exports = (robot) ->
   robot.hear /bird$/i, (msg) ->
     msg.send "http://25.media.tumblr.com/0ba7edfcaec59f6681153293d7104870/tumblr_mqp72vmCEv1rix2dqo1_250.gif"
 
-  robot.hear /(love|like|good)$/i, (msg) ->
+  robot.hear /.*(love|like|good).*$/i, (msg) ->
     wheatley_img = [
       "http://th06.deviantart.net/fs71/200H/i/2011/110/d/e/wheatley__portal_2_by_littlemeesh-d3eh5w0.png",
       "http://25.media.tumblr.com/5809ba7fb5c2268a85b21e67b3e1dae4/tumblr_mi7sri4uSj1rgndfmo1_500.gif"
