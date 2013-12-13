@@ -26,7 +26,7 @@ module.exports = (robot) ->
        "http://25.media.tumblr.com/3f6cdf635caf86fa1bd56ba19421434e/tumblr_mifspd6EnJ1rgndfmo1_400.gif",
        "http://31.media.tumblr.com/0f2d6af2e107621221855f2356962194/tumblr_mx06b2etSt1qccu1oo2_500.gif"
     ]
-    msg.reply wheatley_img[Math.floor(Math.random()*wheatley_img.length)] + "\n oh ... uh. hello there..."
+    msg.reply wheatley_img[Math.floor(Math.random()*wheatley_img.length)] + "\n AH! Oh. My. God. You look terribl-- ummm... good. Looking good, actually."
 
   robot.hear /(derp|whoops|oops|dammit|shit|ugh|bad)$/i, (msg) ->
     wheatley_img = [
