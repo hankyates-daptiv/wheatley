@@ -14,7 +14,7 @@ module.exports = (robot) ->
     ]
     msg.reply wheatley_img[Math.floor(Math.random()*wheatley_img.length)]
 
-  robot.hear /.*(morning|mornin|hi|hey).*$/i, (msg) ->
+  robot.hear /.*(morning|mornin|hey).*$/i, (msg) ->
     wheatley_img = [
        "http://media.tumblr.com/tumblr_maf0f5TxkQ1rrzlrq.gif",
        "http://24.media.tumblr.com/b02cc25ede2ca39d2a8a1518923bfac6/tumblr_mwcpfmWvQm1qcb7k0o1_400.gif",
@@ -52,7 +52,7 @@ module.exports = (robot) ->
     ]
     msg.send wheatley_img[Math.floor(Math.random()*wheatley_img.length)]
 
-  robot.hear /.*(lol|haha|hah|ha).*$/i, (msg) ->
+  robot.hear /.*(lol|haha|hah).*$/i, (msg) ->
     wheatley_img = [
       "http://31.media.tumblr.com/50c5c0ce29f3eee12a11e5e184fb376d/tumblr_mx06b2etSt1qccu1oo5_250.gif"
     ]
