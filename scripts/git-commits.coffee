@@ -24,9 +24,6 @@ gitio = require('gitio')
 
 module.exports = (robot) ->
 
-  robot.router.get "/hubot/git-commits", (req, res) ->
-    res.end "oh hai"
-
   robot.router.post "/hubot/git-commits", (req, res) ->
     query = querystring.parse(url.parse(req.url).query)
 
@@ -42,6 +39,7 @@ module.exports = (robot) ->
       if payload.commits.length > 0
         robot.send user, "Got #{payload.commits.length} new commits from #{payload.commits[0].author.name} on #{payload.repository.name}"
         for commit in payload.commits
+          console.log commit
           do (commit) ->
             gitio commit.url, (err, data) ->
               robot.send user, "  * #{commit.message} (#{if err then commit.url else data})"
