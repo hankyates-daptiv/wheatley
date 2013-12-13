@@ -22,11 +22,24 @@ module.exports = (robot) ->
     ]
     msg.send  wheatley_img[Math.floor(Math.random()*wheatley_img.length)] + "\n oh ... uh. hello there."
 
-  robot.hear /panic$/i, (msg) ->
+  robot.hear /(derp|whoops|oops|dammit|shit|ugh|bad)$/i, (msg) ->
+    wheatley_img = [
+      "http://cdn.memegenerator.net/instances/400x/29086847.jpg",
+      "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRsZ3jG7yl-fXEBjjm2ROj2XGySdHsP4na8aBwuPj-mW8UfC9Jo",
+      "http://i.imgur.com/iByosOp.png",
+      "http://img0.etsystatic.com/il_570xN.243115620.jpg",
+      "http://cdn.memegenerator.net/instances/250x250/43232276.jpg"
+    ]
+    msg.send wheatley_img[Math.floor(Math.random()*wheatley_img.length)]
+
+  robot.hear /(panic)$/i, (msg) ->
     msg.send "http://25.media.tumblr.com/b4e203c894237b2721a8a21f63a3ca2a/tumblr_mmagd8rjY61rmn5y0o2_250.gif"
+
+  robot.hear /(hack)$/i, (msg) ->
+    msg.send "http://25.media.tumblr.com/tumblr_menza20uFb1rkxa08o1_500.gif"
 
   robot.hear /bird$/i, (msg) ->
     msg.send "http://25.media.tumblr.com/0ba7edfcaec59f6681153293d7104870/tumblr_mqp72vmCEv1rix2dqo1_250.gif"
 
-  robot.hear /(love|like)$/i, (msg) ->
+  robot.hear /(love|like|good)$/i, (msg) ->
     msg.send "http://25.media.tumblr.com/5809ba7fb5c2268a85b21e67b3e1dae4/tumblr_mi7sri4uSj1rgndfmo1_500.gif"
