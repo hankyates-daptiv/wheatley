@@ -28,10 +28,10 @@ querystring = require('querystring')
 
 module.exports = (robot) ->
 
-  robot.router.post "/hubot/git-pull-requests", (req, res) ->
+  robot.router.post "/hubot/git-comments", (req, res) ->
     query = querystring.parse(url.parse(req.url).query)
 
-    res.end "what"
+    res.end "yup"
 
     user = {}
     user.room = query.room if query.room
